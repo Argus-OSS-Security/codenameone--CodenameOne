@@ -5,20 +5,21 @@ name: Car (Android Auto) integration
 # the on-device car test, or the car build wiring change. Builds the Hello Codename One app (which
 # exercises the car API, so the build injects the androidx.car.app dependency + CarAppService) and
 # runs it on a native Android emulator + asserts the injected Android Auto wiring.
-'on':
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - '.github/workflows/car-android.yml'
-      - 'CodenameOne/src/com/codename1/car/**'
-      - 'Ports/Android/src/com/codename1/impl/android/AndroidCarSupport.java'
-      - 'maven/build-engine/src/main/resources/com/codename1/builders/car/**'
-  schedule:
-    - cron: '11 0 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# 'on':
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - '.github/workflows/car-android.yml'
+#       - 'CodenameOne/src/com/codename1/car/**'
+#       - 'Ports/Android/src/com/codename1/impl/android/AndroidCarSupport.java'
+#       - 'maven/build-engine/src/main/resources/com/codename1/builders/car/**'
+#   schedule:
+#     - cron: '11 0 * * *'
+#   workflow_dispatch:
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

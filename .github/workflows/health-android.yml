@@ -12,26 +12,27 @@ name: Health (Health Connect) integration
 # minSdkVersion to 26, and at 26 the platform supplies java.time instead of
 # the desugared library -- which changes behaviour for unrelated tests. The
 # shared conformance suite must keep running at the framework's normal floor.
-'on':
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - '.github/workflows/health-android.yml'
-      - 'CodenameOne/src/com/codename1/health/**'
-      - 'CodenameOne/src/com/codename1/impl/health/**'
-      - 'Ports/Android/src/com/codename1/impl/android/AndroidHealth*.java'
-      - 'Ports/Android/src/com/codename1/impl/android/HealthConnectDelegate.java'
-      - 'Ports/Android/src/com/codename1/health/**'
-      - 'maven/build-engine/src/main/resources/com/codename1/builders/health/**'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/HealthManifestFragments.java'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/HealthListenerBindings.java'
-      - 'scripts/hellocodenameone/health-smoke/**'
-  schedule:
-    - cron: '11 0 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# 'on':
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - '.github/workflows/health-android.yml'
+#       - 'CodenameOne/src/com/codename1/health/**'
+#       - 'CodenameOne/src/com/codename1/impl/health/**'
+#       - 'Ports/Android/src/com/codename1/impl/android/AndroidHealth*.java'
+#       - 'Ports/Android/src/com/codename1/impl/android/HealthConnectDelegate.java'
+#       - 'Ports/Android/src/com/codename1/health/**'
+#       - 'maven/build-engine/src/main/resources/com/codename1/builders/health/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/HealthManifestFragments.java'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/HealthListenerBindings.java'
+#       - 'scripts/hellocodenameone/health-smoke/**'
+#   schedule:
+#     - cron: '11 0 * * *'
+#   workflow_dispatch:
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

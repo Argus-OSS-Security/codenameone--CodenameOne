@@ -6,19 +6,20 @@ name: Publish port status reports
 # their own report from the job that produced it. They stay listed here because
 # publication is timestamp-guarded and therefore idempotent: if GitHub ever does
 # deliver the event, the second publish is a no-op rather than a conflict.
-on:
-  workflow_run:
-    workflows:
-      - Test Android build scripts
-      - Test iOS UI build scripts
-      - Test macOS UI build scripts
-      - Test Mac Catalyst UI build scripts
-      - Test JavaScript screenshot scripts
-      - Linux native build + run (GTK3, x64 + arm64)
-      - Windows cross-build + run (Linux build -> Windows run)
-      - ParparVM Java Tests (Windows)
-    types: [completed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows:
+#       - Test Android build scripts
+#       - Test iOS UI build scripts
+#       - Test macOS UI build scripts
+#       - Test Mac Catalyst UI build scripts
+#       - Test JavaScript screenshot scripts
+#       - Linux native build + run (GTK3, x64 + arm64)
+#       - Windows cross-build + run (Linux build -> Windows run)
+#       - ParparVM Java Tests (Windows)
+#     types: [completed]
+# 
 permissions:
   actions: write
   contents: write

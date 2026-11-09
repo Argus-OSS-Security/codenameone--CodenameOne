@@ -12,26 +12,27 @@
 # the guide's numbers can be refreshed from a CI machine rather than a laptop.
 name: Backend performance gate
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [master]
-    paths:
-      - 'vm/backend/**'
-      - 'vm/ByteCodeTranslator/src/**'
-      - 'vm/JavaAPI/src/**'
-      - 'scripts/embedded/bench/charts.py'
-      - 'scripts/embedded/bench/headless/**'
-      - '.github/workflows/backend-performance.yml'
-  pull_request:
-    paths:
-      - 'vm/backend/**'
-      - 'vm/ByteCodeTranslator/src/**'
-      - 'vm/JavaAPI/src/**'
-      - 'scripts/embedded/bench/charts.py'
-      - 'scripts/embedded/bench/headless/**'
-      - '.github/workflows/backend-performance.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches: [master]
+#     paths:
+#       - 'vm/backend/**'
+#       - 'vm/ByteCodeTranslator/src/**'
+#       - 'vm/JavaAPI/src/**'
+#       - 'scripts/embedded/bench/charts.py'
+#       - 'scripts/embedded/bench/headless/**'
+#       - '.github/workflows/backend-performance.yml'
+#   pull_request:
+#     paths:
+#       - 'vm/backend/**'
+#       - 'vm/ByteCodeTranslator/src/**'
+#       - 'vm/JavaAPI/src/**'
+#       - 'scripts/embedded/bench/charts.py'
+#       - 'scripts/embedded/bench/headless/**'
+#       - '.github/workflows/backend-performance.yml'
+# 
 concurrency:
   group: backend-performance-${{ github.ref }}
   cancel-in-progress: true

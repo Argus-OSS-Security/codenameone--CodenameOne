@@ -22,17 +22,18 @@ name: Performance baselines
 #          Port Status page's ParparVM vs JDK 25 table is rendered from these rows.
 #          A push made with GITHUB_TOKEN triggers no workflow, hence the dispatch.
 
-on:
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: '20 3 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     branches:
+#       - master
+#   push:
+#     branches:
+#       - master
+#   schedule:
+#     - cron: '20 3 * * *'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

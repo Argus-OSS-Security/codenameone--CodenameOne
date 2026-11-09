@@ -15,20 +15,21 @@
 # llvmpipe says nothing about a board's GPU speed; it holds correctness.
 name: Embedded Linux
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - 'Ports/LinuxPort/**'
-      - 'maven/linux/**'
-      - 'scripts/embedded/**'
-      - '.github/workflows/embedded-linux.yml'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch:
+#   pull_request:
+#     paths:
+#       - 'Ports/LinuxPort/**'
+#       - 'maven/linux/**'
+#       - 'scripts/embedded/**'
+#       - '.github/workflows/embedded-linux.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 concurrency:
   group: embedded-linux-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true

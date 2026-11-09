@@ -18,12 +18,13 @@ name: Nightly watchdog
 # is reported the next morning; and the issue closes only when every suite has
 # finished green, never on one still running.
 
-on:
-  schedule:
-    # Late enough for the slowest suite (the iOS sample builds) to finish.
-    - cron: '30 7 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Late enough for the slowest suite (the iOS sample builds) to finish.
+#     - cron: '30 7 * * *'
+#   workflow_dispatch:
+# 
 permissions:
   actions: read
   contents: read

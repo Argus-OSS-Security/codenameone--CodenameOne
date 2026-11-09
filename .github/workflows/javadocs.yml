@@ -1,28 +1,29 @@
 name: Build JavaDocs
 
-on:
-  pull_request:
-    paths:
-      - 'CodenameOne/src/**/*.java'
-      - 'Ports/**/src/**/*.java'
-      # The backend API reference is built by the same script, from these.
-      - 'vm/backend/src/**/*.java'
-      - 'vm/backend/impl/**/*.java'
-      - 'vm/backend/shared-sources.sh'
-      - 'vm/backend/package-docs/**'
-      - 'maven/**/src/main/java/**/*.java'
-      - '.github/scripts/build_javadocs.sh'
-      - 'scripts/check-package-info.sh'
-      - '.github/workflows/javadocs.yml'
-  push:
-    branches:
-      - master
-      - main
-  release:
-    types:
-      - published
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - 'CodenameOne/src/**/*.java'
+#       - 'Ports/**/src/**/*.java'
+#       # The backend API reference is built by the same script, from these.
+#       - 'vm/backend/src/**/*.java'
+#       - 'vm/backend/impl/**/*.java'
+#       - 'vm/backend/shared-sources.sh'
+#       - 'vm/backend/package-docs/**'
+#       - 'maven/**/src/main/java/**/*.java'
+#       - '.github/scripts/build_javadocs.sh'
+#       - 'scripts/check-package-info.sh'
+#       - '.github/workflows/javadocs.yml'
+#   push:
+#     branches:
+#       - master
+#       - main
+#   release:
+#     types:
+#       - published
+#   workflow_dispatch:
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

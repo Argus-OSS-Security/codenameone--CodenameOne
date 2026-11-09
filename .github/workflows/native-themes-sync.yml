@@ -10,19 +10,20 @@ name: Native Themes Sync
 # Pushes made with GITHUB_TOKEN do not retrigger workflow runs, so the
 # commit-back step cannot loop.
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'scripts/ci/retry.sh'
-      - 'native-themes/**'
-      - 'maven/css-compiler/**'
-      - 'maven/css-cli/**'
-      - 'scripts/build-native-themes.sh'
-      - '.github/workflows/native-themes-sync.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'scripts/ci/retry.sh'
+#       - 'native-themes/**'
+#       - 'maven/css-compiler/**'
+#       - 'maven/css-cli/**'
+#       - 'scripts/build-native-themes.sh'
+#       - '.github/workflows/native-themes-sync.yml'
+# 
 permissions:
   contents: write
   # The job runs inside the private ghcr.io/codenameone pr-ci-container

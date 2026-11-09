@@ -8,18 +8,19 @@ name: Blog Prose Checks
 # changed post against its merge-base version). The backlog stays grandfathered;
 # the weekly report job tracks it without blocking anyone.
 
-on:
-  # Runs on EVERY pull request (no path filter) so the gate can be registered as
-  # a required status check on the base branch without the "required check never
-  # reports" deadlock that path-filtered workflows cause. The job itself detects
-  # whether any blog content changed and fast-skips (passing) when none did, so
-  # non-blog PRs stay cheap.
-  pull_request:
-  schedule:
-    # Weekly whole-corpus backlog report (Mondays 06:00 UTC). Non-blocking.
-    - cron: '0 6 * * 1'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Runs on EVERY pull request (no path filter) so the gate can be registered as
+#   # a required status check on the base branch without the "required check never
+#   # reports" deadlock that path-filtered workflows cause. The job itself detects
+#   # whether any blog content changed and fast-skips (passing) when none did, so
+#   # non-blog PRs stay cheap.
+#   pull_request:
+#   schedule:
+#     # Weekly whole-corpus backlog report (Mondays 06:00 UTC). Non-blocking.
+#     - cron: '0 6 * * 1'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
   pull-requests: write

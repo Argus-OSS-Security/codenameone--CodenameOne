@@ -11,12 +11,13 @@
 # -DskipPublishing=true throughout, so it stages and never uploads to Central.
 
 name: Release
-on:
-  push:
-    tags: '*'
-
-# The R2 metadata regeneration is a read-modify-write over the bucket listing, so two
-# releases must never overlap.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     tags: '*'
+# 
+# # The R2 metadata regeneration is a read-modify-write over the bucket listing, so two
+# # releases must never overlap.
 concurrency:
   group: release
   cancel-in-progress: false

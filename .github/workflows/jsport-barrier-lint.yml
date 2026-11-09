@@ -8,20 +8,21 @@ name: JS port barrier-read lint
 # getter.width@HTMLCanvasElement during a form transition). Dimensions/pixels are
 # kept Java-side; this lint fails the build on any regression.
 
-'on':
-  pull_request:
-    paths:
-      - 'Ports/JavaScriptPort/src/main/java/**/*.java'
-      - 'scripts/lint/jsport-canvas-barrier-reads.py'
-      - '.github/workflows/jsport-barrier-lint.yml'
-  push:
-    branches:
-      - master
-    paths:
-      - 'Ports/JavaScriptPort/src/main/java/**/*.java'
-      - 'scripts/lint/jsport-canvas-barrier-reads.py'
-      - '.github/workflows/jsport-barrier-lint.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# 'on':
+#   pull_request:
+#     paths:
+#       - 'Ports/JavaScriptPort/src/main/java/**/*.java'
+#       - 'scripts/lint/jsport-canvas-barrier-reads.py'
+#       - '.github/workflows/jsport-barrier-lint.yml'
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'Ports/JavaScriptPort/src/main/java/**/*.java'
+#       - 'scripts/lint/jsport-canvas-barrier-reads.py'
+#       - '.github/workflows/jsport-barrier-lint.yml'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

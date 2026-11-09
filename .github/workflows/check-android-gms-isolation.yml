@@ -13,25 +13,26 @@ name: Check Android Play services isolation
 permissions:
   contents: read
 
-on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - master
-    paths:
-      - 'Ports/Android/src/**'
-      - 'scripts/check-android-gms-isolation.py'
-      - 'scripts/android-gms-isolation-allowlist.txt'
-      - '.github/workflows/check-android-gms-isolation.yml'
-  push:
-    branches:
-      - master
-    paths:
-      - 'Ports/Android/src/**'
-      - 'scripts/check-android-gms-isolation.py'
-      - 'scripts/android-gms-isolation-allowlist.txt'
-      - '.github/workflows/check-android-gms-isolation.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     branches:
+#       - master
+#     paths:
+#       - 'Ports/Android/src/**'
+#       - 'scripts/check-android-gms-isolation.py'
+#       - 'scripts/android-gms-isolation-allowlist.txt'
+#       - '.github/workflows/check-android-gms-isolation.yml'
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'Ports/Android/src/**'
+#       - 'scripts/check-android-gms-isolation.py'
+#       - 'scripts/android-gms-isolation-allowlist.txt'
+#       - '.github/workflows/check-android-gms-isolation.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

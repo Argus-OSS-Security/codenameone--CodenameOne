@@ -6,22 +6,23 @@ name: Car (CarPlay) integration
 # Codename One app (which exercises the car API, so the build flips CN1_USE_CARPLAY, links
 # CarPlay.framework and injects the CarPlay scene/entitlement) and runs it on the iOS Simulator,
 # asserts the CarPlay scene/define/native sources are injected, and boots it on the iOS Simulator.
-'on':
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - '.github/workflows/car-ios.yml'
-      - 'CodenameOne/src/com/codename1/car/**'
-      - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCarBridge.java'
-      - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCarPlayCallbacks.java'
-      - 'Ports/iOSPort/nativeSources/CodenameOne_CarPlaySceneDelegate.h'
-      - 'Ports/iOSPort/nativeSources/CodenameOne_CarPlaySceneDelegate.m'
-  schedule:
-    - cron: '11 0 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# 'on':
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - '.github/workflows/car-ios.yml'
+#       - 'CodenameOne/src/com/codename1/car/**'
+#       - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCarBridge.java'
+#       - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCarPlayCallbacks.java'
+#       - 'Ports/iOSPort/nativeSources/CodenameOne_CarPlaySceneDelegate.h'
+#       - 'Ports/iOSPort/nativeSources/CodenameOne_CarPlaySceneDelegate.m'
+#   schedule:
+#     - cron: '11 0 * * *'
+#   workflow_dispatch:
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

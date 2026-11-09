@@ -20,22 +20,23 @@ name: Purchase E2E (IAP)
 # sample, so IAP wiring (StoreKit / Play Billing) never ripples into the
 # screenshot / notification CI workflows.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch: {}
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'CodenameOne/src/com/codename1/payment/**'
-      - 'scripts/purchase-test-app/**'
-      - 'scripts/ios/purchase-tests/**'
-      - 'scripts/run-ios-purchase-tests.sh'
-      - '.github/workflows/purchase-e2e.yml'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch: {}
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'CodenameOne/src/com/codename1/payment/**'
+#       - 'scripts/purchase-test-app/**'
+#       - 'scripts/ios/purchase-tests/**'
+#       - 'scripts/run-ios-purchase-tests.sh'
+#       - '.github/workflows/purchase-e2e.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 permissions:
   contents: read
   # Required to pull the pr-ci-container image from ghcr.io.

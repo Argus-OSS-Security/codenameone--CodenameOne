@@ -6,20 +6,21 @@ name: AI cn1lib Android native check
 # bridges against fixture images via espresso) lands separately -- this
 # workflow is a fast static gate.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch:
-  pull_request:
-    branches: [master]
-    paths:
-      - 'maven/cn1-ai-**'
-      - 'scripts/gen-ai-cn1libs.py'
-      - '.github/workflows/ai-cn1lib-android-check.yml'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch:
+#   pull_request:
+#     branches: [master]
+#     paths:
+#       - 'maven/cn1-ai-**'
+#       - 'scripts/gen-ai-cn1libs.py'
+#       - '.github/workflows/ai-cn1lib-android-check.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

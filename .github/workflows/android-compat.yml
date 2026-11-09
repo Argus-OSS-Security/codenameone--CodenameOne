@@ -13,40 +13,41 @@ name: Android compatibility
 #                                 checked for unrelocated android.* references,
 #                                 and staged for iOS, Android, JavaScript and the
 #                                 desktop with identical uploads from both tools
-on:
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'maven/android-compat/**'
-      - 'maven/android-res-compiler/**'
-      - 'maven/build-engine/**'
-      - 'maven/codenameone-maven-plugin/**'
-      - 'maven/codenameone-gradle-plugin/**'
-      - 'maven/project-model/**'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/android-compat-test.sh'
-      - 'maven/integration-tests/android-gradle-incremental-test.sh'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/android-compat-samples/**'
-      - '.github/workflows/android-compat.yml'
-  push:
-    branches: [ master ]
-    paths:
-      - 'maven/android-compat/**'
-      - 'maven/android-res-compiler/**'
-      - 'maven/build-engine/**'
-      - 'maven/codenameone-maven-plugin/**'
-      - 'maven/codenameone-gradle-plugin/**'
-      - 'maven/project-model/**'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/android-compat-test.sh'
-      - 'maven/integration-tests/android-gradle-incremental-test.sh'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/android-compat-samples/**'
-      - '.github/workflows/android-compat.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/android-compat/**'
+#       - 'maven/android-res-compiler/**'
+#       - 'maven/build-engine/**'
+#       - 'maven/codenameone-maven-plugin/**'
+#       - 'maven/codenameone-gradle-plugin/**'
+#       - 'maven/project-model/**'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/android-compat-test.sh'
+#       - 'maven/integration-tests/android-gradle-incremental-test.sh'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/android-compat-samples/**'
+#       - '.github/workflows/android-compat.yml'
+#   push:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/android-compat/**'
+#       - 'maven/android-res-compiler/**'
+#       - 'maven/build-engine/**'
+#       - 'maven/codenameone-maven-plugin/**'
+#       - 'maven/codenameone-gradle-plugin/**'
+#       - 'maven/project-model/**'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/android-compat-test.sh'
+#       - 'maven/integration-tests/android-gradle-incremental-test.sh'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/android-compat-samples/**'
+#       - '.github/workflows/android-compat.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true

@@ -6,31 +6,32 @@ name: Documentation snippets run in the Playground
 # new snippet has to be self-contained. Its own workflow because pr.yml's paths
 # filter skips docs/.
 
-on:
-  pull_request:
-    paths:
-      - 'docs/developer-guide/**'
-      # Every tree a guide page includes Java from: changing an included file
-      # changes the published snippet without touching the .asciidoc.
-      - 'docs/demos/**'
-      - 'scripts/wayline/**'
-      - 'scripts/savor/**'
-      - 'scripts/bastion/**'
-      - 'scripts/pulse/**'
-      - 'scripts/skirmish/**'
-      - 'scripts/dash/**'
-      - 'scripts/hellocodenameone/common/src/main/kmp/**'
-      - 'docs/website/content/blog/**'
-      - 'CodenameOne/src/**/*.java'
-      - 'Ports/CLDC11/src/**/*.java'
-      - 'scripts/cn1playground/common/**'
-      - 'vm/JavaCompiler/**'
-      - 'scripts/check-doc-snippets.py'
-      - 'scripts/doc-snippet-baseline.txt'
-      - 'scripts/extract-javadoc-java-snippets.sh'
-      - '.github/workflows/check-doc-snippets.yml'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - 'docs/developer-guide/**'
+#       # Every tree a guide page includes Java from: changing an included file
+#       # changes the published snippet without touching the .asciidoc.
+#       - 'docs/demos/**'
+#       - 'scripts/wayline/**'
+#       - 'scripts/savor/**'
+#       - 'scripts/bastion/**'
+#       - 'scripts/pulse/**'
+#       - 'scripts/skirmish/**'
+#       - 'scripts/dash/**'
+#       - 'scripts/hellocodenameone/common/src/main/kmp/**'
+#       - 'docs/website/content/blog/**'
+#       - 'CodenameOne/src/**/*.java'
+#       - 'Ports/CLDC11/src/**/*.java'
+#       - 'scripts/cn1playground/common/**'
+#       - 'vm/JavaCompiler/**'
+#       - 'scripts/check-doc-snippets.py'
+#       - 'scripts/doc-snippet-baseline.txt'
+#       - 'scripts/extract-javadoc-java-snippets.sh'
+#       - '.github/workflows/check-doc-snippets.yml'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

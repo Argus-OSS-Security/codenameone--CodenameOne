@@ -10,27 +10,28 @@ name: Cloud starter canary
 # have broken in ways that made a first build impossible while every offline
 # check stayed green. So this runs against the live service, nightly.
 #
-on:
-  # Keep the assertions honest on a PR that edits them. This leg runs no build
-  # and touches no network, so it costs seconds.
-  pull_request:
-    paths:
-      - 'scripts/ci/starter-canary/**'
-      - '.github/workflows/starter-canary.yml'
-  schedule:
-    # 04:40 UTC: after the server-side weekly version refresh has settled, and
-    # away from the blog/syndication slots.
-    - cron: '40 4 * * *'
-  workflow_dispatch:
-    inputs:
-      target:
-        description: 'Build target (never iphone/macos -- 8 credits each)'
-        default: 'javascript'
-      skip_build:
-        description: 'Artefact checks only, no cloud build'
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Keep the assertions honest on a PR that edits them. This leg runs no build
+#   # and touches no network, so it costs seconds.
+#   pull_request:
+#     paths:
+#       - 'scripts/ci/starter-canary/**'
+#       - '.github/workflows/starter-canary.yml'
+#   schedule:
+#     # 04:40 UTC: after the server-side weekly version refresh has settled, and
+#     # away from the blog/syndication slots.
+#     - cron: '40 4 * * *'
+#   workflow_dispatch:
+#     inputs:
+#       target:
+#         description: 'Build target (never iphone/macos -- 8 credits each)'
+#         default: 'javascript'
+#       skip_build:
+#         description: 'Artefact checks only, no cloud build'
+#         type: boolean
+#         default: false
+# 
 permissions:
   contents: read
   issues: write

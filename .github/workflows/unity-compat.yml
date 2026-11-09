@@ -40,80 +40,81 @@ name: Unity compatibility
 # the scripts that do the judging, so no change to any of them can merge
 # without this workflow running, and the report script fails on a module that
 # produced no report rather than reading the absence as clean.
-on:
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/unity-compat-test.sh'
-      - 'maven/integration-tests/unity-compat-project-test.sh'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/AppSupport.java'
-      - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/tasks/CompileUnityTask.java'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/GradleConversion.java'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/unity-compat-samples/**'
-      - 'CodenameOne/src/com/codename1/gaming/**'
-      # The platform the offscreen check of the game view runs on.
-      - 'maven/core-unittests/src/test/java/com/codename1/testing/**'
-      - 'vm/ByteCodeTranslator/**'
-      - 'vm/JavaAPI/**'
-      - 'vm/selfhost/js/**'
-      # What judges the two modules: a change that weakens a gate has to run it.
-      - '.github/scripts/generate-quality-report.py'
-      - 'maven/core-unittests/pmd.xml'
-      - 'maven/core-unittests/checkstyle.xml'
-      - 'scripts/check-cast-semantics.sh'
-      - 'scripts/cast-semantics-baseline.txt'
-      # The archive the screenshot workflows build the application from,
-      # and the one job here that proves a job without the SDK can use it.
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - 'scripts/hellocodenameone/pom.xml'
-      - 'scripts/hellocodenameone/common/pom.xml'
-      - '.github/workflows/unity-compat.yml'
-  push:
-    branches: [ master ]
-    paths:
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/unity-compat-test.sh'
-      - 'maven/integration-tests/unity-compat-project-test.sh'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/AppSupport.java'
-      - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/tasks/CompileUnityTask.java'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/GradleConversion.java'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/unity-compat-samples/**'
-      - 'CodenameOne/src/com/codename1/gaming/**'
-      # The platform the offscreen check of the game view runs on.
-      - 'maven/core-unittests/src/test/java/com/codename1/testing/**'
-      - 'vm/ByteCodeTranslator/**'
-      - 'vm/JavaAPI/**'
-      - 'vm/selfhost/js/**'
-      # What judges the two modules: a change that weakens a gate has to run it.
-      - '.github/scripts/generate-quality-report.py'
-      - 'maven/core-unittests/pmd.xml'
-      - 'maven/core-unittests/checkstyle.xml'
-      - 'scripts/check-cast-semantics.sh'
-      - 'scripts/cast-semantics-baseline.txt'
-      # The archive the screenshot workflows build the application from,
-      # and the one job here that proves a job without the SDK can use it.
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - 'scripts/hellocodenameone/pom.xml'
-      - 'scripts/hellocodenameone/common/pom.xml'
-      - '.github/workflows/unity-compat.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/unity-compat-test.sh'
+#       - 'maven/integration-tests/unity-compat-project-test.sh'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/AppSupport.java'
+#       - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/tasks/CompileUnityTask.java'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/GradleConversion.java'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/unity-compat-samples/**'
+#       - 'CodenameOne/src/com/codename1/gaming/**'
+#       # The platform the offscreen check of the game view runs on.
+#       - 'maven/core-unittests/src/test/java/com/codename1/testing/**'
+#       - 'vm/ByteCodeTranslator/**'
+#       - 'vm/JavaAPI/**'
+#       - 'vm/selfhost/js/**'
+#       # What judges the two modules: a change that weakens a gate has to run it.
+#       - '.github/scripts/generate-quality-report.py'
+#       - 'maven/core-unittests/pmd.xml'
+#       - 'maven/core-unittests/checkstyle.xml'
+#       - 'scripts/check-cast-semantics.sh'
+#       - 'scripts/cast-semantics-baseline.txt'
+#       # The archive the screenshot workflows build the application from,
+#       # and the one job here that proves a job without the SDK can use it.
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - 'scripts/hellocodenameone/pom.xml'
+#       - 'scripts/hellocodenameone/common/pom.xml'
+#       - '.github/workflows/unity-compat.yml'
+#   push:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/unity-compat-test.sh'
+#       - 'maven/integration-tests/unity-compat-project-test.sh'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/AppSupport.java'
+#       - 'maven/codenameone-gradle-plugin/src/main/java/com/codename1/gradle/tasks/CompileUnityTask.java'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/GradleConversion.java'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/unity-compat-samples/**'
+#       - 'CodenameOne/src/com/codename1/gaming/**'
+#       # The platform the offscreen check of the game view runs on.
+#       - 'maven/core-unittests/src/test/java/com/codename1/testing/**'
+#       - 'vm/ByteCodeTranslator/**'
+#       - 'vm/JavaAPI/**'
+#       - 'vm/selfhost/js/**'
+#       # What judges the two modules: a change that weakens a gate has to run it.
+#       - '.github/scripts/generate-quality-report.py'
+#       - 'maven/core-unittests/pmd.xml'
+#       - 'maven/core-unittests/checkstyle.xml'
+#       - 'scripts/check-cast-semantics.sh'
+#       - 'scripts/cast-semantics-baseline.txt'
+#       # The archive the screenshot workflows build the application from,
+#       # and the one job here that proves a job without the SDK can use it.
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - 'scripts/hellocodenameone/pom.xml'
+#       - 'scripts/hellocodenameone/common/pom.xml'
+#       - '.github/workflows/unity-compat.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true

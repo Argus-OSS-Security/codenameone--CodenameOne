@@ -15,19 +15,20 @@ name: Test Mac Catalyst UI build scripts
 # Mac/iOS workflows on the same SHA stay fast.
 
 # Automatic triggers and changed-file selection are owned by scripts-ios.yml.
-on:
-  workflow_dispatch:
-  workflow_call:
-    inputs:
-      port_prepared:
-        type: boolean
-        default: false
-      # True when the caller already ran unity-gallery-prebuilt.yml in this run:
-      # its artifact has a fixed name and cannot be uploaded twice.
-      unity_prepared:
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   workflow_call:
+#     inputs:
+#       port_prepared:
+#         type: boolean
+#         default: false
+#       # True when the caller already ran unity-gallery-prebuilt.yml in this run:
+#       # its artifact has a fixed name and cannot be uploaded twice.
+#       unity_prepared:
+#         type: boolean
+#         default: false
+# 
 env:
   # A method the translator culled as unreachable is still emitted as a stub,
   # because dispatch tables name it. With this on, the stub aborts with the

@@ -4,22 +4,23 @@ name: Large AI cn1lib iOS xcodebuild check
 # are exercised by the normal port/build tests. Keep this isolated native
 # check for the two deliberately large cn1libs.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch:
-  pull_request:
-    branches: [master]
-    paths:
-      - 'maven/cn1-ai-whisper/**'
-      - 'maven/cn1-ai-stablediffusion/**'
-      - 'scripts/gen-ai-cn1libs.py'
-      - '.github/workflows/ai-cn1lib-native-check.yml'
-      - 'scripts/ci/select-cn1lib-checks.py'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch:
+#   pull_request:
+#     branches: [master]
+#     paths:
+#       - 'maven/cn1-ai-whisper/**'
+#       - 'maven/cn1-ai-stablediffusion/**'
+#       - 'scripts/gen-ai-cn1libs.py'
+#       - '.github/workflows/ai-cn1lib-native-check.yml'
+#       - 'scripts/ci/select-cn1lib-checks.py'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

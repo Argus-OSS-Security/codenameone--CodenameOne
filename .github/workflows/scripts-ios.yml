@@ -1,146 +1,147 @@
 name: Test iOS UI build scripts
 
-on:
-  workflow_dispatch:
-    inputs:
-      watch_only:
-        description: Run only the watchOS evidence job after the shared port build
-        required: false
-        default: false
-        type: boolean
-  schedule:
-  - cron: 15 1 * * *
-  pull_request:
-    paths:
-    # The application these jobs build compiles a Unity project, from an
-    # archive that unity-gallery-prebuilt.yml makes out of these.
-    - scripts/unity-compat-samples/gallery/**
-    - maven/cil-translator/**
-    - maven/unity-compat/**
-    - maven/build-engine/src/main/java/com/codename1/maven/Unity*
-    - maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*
-    - scripts/unity-gallery-prebuilt.sh
-    - .github/workflows/unity-gallery-prebuilt.yml
-    - .github/actions/unity-gallery-prebuilt/**
-    - .github/workflows/scripts-ios.yml
-    - .github/workflows/_build-ios-port.yml
-    - scripts/setup-workspace.sh
-    - scripts/build-ios-port.sh
-    - scripts/build-ios-app.sh
-    - scripts/check-ios-framework-links.py
-    - scripts/check-ios-sdk-deltas.py
-    - scripts/check-ios-private-api.py
-    - scripts/lib/xcode.sh
-    - scripts/run-ios-ui-tests.sh
-    - scripts/ci/boot-ios-simulator.sh
-    - scripts/run-watch-ui-tests.sh
-    - scripts/run-tv-ui-tests.sh
-    - scripts/run-ios-native-tests.sh
-    - scripts/ios/notification-tests/native-tests/**
-    - scripts/ios/notification-tests/install-native-notification-tests.sh
-    - scripts/ios/notification-tests/**
-    - scripts/hellocodenameone/**
-    - scripts/ios/tests/**
-    - scripts/ios/screenshots-metal/**
-    - scripts/ios/screenshots-metal-27/**
-    - scripts/ios/screenshots-watch/**
-    - scripts/ios/screenshots-tv/**
-    - scripts/templates/**
-    - CodenameOne/src/**
-    - Ports/iOSPort/**
-    - native-themes/ios-modern/**
-    - vm/**
-    - tests/**
-    - maven/**
-    - scripts/hellocodenameone/backend/**
-    - scripts/lib/cn1ss.sh
-    - .github/workflows/scripts-ios-native.yml
-    - scripts/ios/create-shared-scheme.py
-    - .github/workflows/ios-packaging.yml
-    - maven/codenameone-maven-plugin/**
-    - vm/ByteCodeTranslator/**
-    - scripts/run-ios-device-release-build.sh
-    - scripts/ios/**
-    - .github/workflows/scripts-mac-catalyst.yml
-    - scripts/build-mac-catalyst-app.sh
-    - scripts/run-mac-catalyst-ui-tests.sh
-    - scripts/mac-catalyst/**
-    - scripts/common/java/**
-    - '!**/*.md'
-    - '!maven/cn1-ai-*/**'
-    - '!maven/cn1-admob/**'
-    - '!maven/cn1-applovin/**'
-    - '!maven/cn1-unity-levelplay/**'
-    - .github/ci/apple-checks.json
-    - scripts/ci/select-apple-checks.py
-    - scripts/ci/select-cn1lib-checks.py
-  push:
-    branches:
-    - master
-    paths:
-    # The application these jobs build compiles a Unity project, from an
-    # archive that unity-gallery-prebuilt.yml makes out of these.
-    - scripts/unity-compat-samples/gallery/**
-    - maven/cil-translator/**
-    - maven/unity-compat/**
-    - maven/build-engine/src/main/java/com/codename1/maven/Unity*
-    - maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*
-    - scripts/unity-gallery-prebuilt.sh
-    - .github/workflows/unity-gallery-prebuilt.yml
-    - .github/actions/unity-gallery-prebuilt/**
-    - .github/workflows/scripts-ios.yml
-    - .github/workflows/_build-ios-port.yml
-    - scripts/setup-workspace.sh
-    - scripts/build-ios-port.sh
-    - scripts/build-ios-app.sh
-    - scripts/check-ios-framework-links.py
-    - scripts/check-ios-sdk-deltas.py
-    - scripts/check-ios-private-api.py
-    - scripts/lib/xcode.sh
-    - scripts/run-ios-ui-tests.sh
-    - scripts/ci/boot-ios-simulator.sh
-    - scripts/run-watch-ui-tests.sh
-    - scripts/run-tv-ui-tests.sh
-    - scripts/run-ios-native-tests.sh
-    - scripts/ios/notification-tests/native-tests/**
-    - scripts/ios/notification-tests/install-native-notification-tests.sh
-    - scripts/ios/notification-tests/**
-    - scripts/hellocodenameone/**
-    - scripts/ios/tests/**
-    - scripts/ios/screenshots-metal/**
-    - scripts/ios/screenshots-metal-27/**
-    - scripts/ios/screenshots-watch/**
-    - scripts/ios/screenshots-tv/**
-    - scripts/templates/**
-    - CodenameOne/src/**
-    - Ports/iOSPort/**
-    - native-themes/ios-modern/**
-    - vm/**
-    - tests/**
-    - maven/**
-    - scripts/hellocodenameone/backend/**
-    - scripts/lib/cn1ss.sh
-    - .github/workflows/scripts-ios-native.yml
-    - scripts/ios/create-shared-scheme.py
-    - .github/workflows/ios-packaging.yml
-    - maven/codenameone-maven-plugin/**
-    - vm/ByteCodeTranslator/**
-    - scripts/run-ios-device-release-build.sh
-    - scripts/ios/**
-    - .github/workflows/scripts-mac-catalyst.yml
-    - scripts/build-mac-catalyst-app.sh
-    - scripts/run-mac-catalyst-ui-tests.sh
-    - scripts/mac-catalyst/**
-    - scripts/common/java/**
-    - '!**/*.md'
-    - '!maven/cn1-ai-*/**'
-    - '!maven/cn1-admob/**'
-    - '!maven/cn1-applovin/**'
-    - '!maven/cn1-unity-levelplay/**'
-    - .github/ci/apple-checks.json
-    - scripts/ci/select-apple-checks.py
-    - scripts/ci/select-cn1lib-checks.py
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       watch_only:
+#         description: Run only the watchOS evidence job after the shared port build
+#         required: false
+#         default: false
+#         type: boolean
+#   schedule:
+#   - cron: 15 1 * * *
+#   pull_request:
+#     paths:
+#     # The application these jobs build compiles a Unity project, from an
+#     # archive that unity-gallery-prebuilt.yml makes out of these.
+#     - scripts/unity-compat-samples/gallery/**
+#     - maven/cil-translator/**
+#     - maven/unity-compat/**
+#     - maven/build-engine/src/main/java/com/codename1/maven/Unity*
+#     - maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*
+#     - scripts/unity-gallery-prebuilt.sh
+#     - .github/workflows/unity-gallery-prebuilt.yml
+#     - .github/actions/unity-gallery-prebuilt/**
+#     - .github/workflows/scripts-ios.yml
+#     - .github/workflows/_build-ios-port.yml
+#     - scripts/setup-workspace.sh
+#     - scripts/build-ios-port.sh
+#     - scripts/build-ios-app.sh
+#     - scripts/check-ios-framework-links.py
+#     - scripts/check-ios-sdk-deltas.py
+#     - scripts/check-ios-private-api.py
+#     - scripts/lib/xcode.sh
+#     - scripts/run-ios-ui-tests.sh
+#     - scripts/ci/boot-ios-simulator.sh
+#     - scripts/run-watch-ui-tests.sh
+#     - scripts/run-tv-ui-tests.sh
+#     - scripts/run-ios-native-tests.sh
+#     - scripts/ios/notification-tests/native-tests/**
+#     - scripts/ios/notification-tests/install-native-notification-tests.sh
+#     - scripts/ios/notification-tests/**
+#     - scripts/hellocodenameone/**
+#     - scripts/ios/tests/**
+#     - scripts/ios/screenshots-metal/**
+#     - scripts/ios/screenshots-metal-27/**
+#     - scripts/ios/screenshots-watch/**
+#     - scripts/ios/screenshots-tv/**
+#     - scripts/templates/**
+#     - CodenameOne/src/**
+#     - Ports/iOSPort/**
+#     - native-themes/ios-modern/**
+#     - vm/**
+#     - tests/**
+#     - maven/**
+#     - scripts/hellocodenameone/backend/**
+#     - scripts/lib/cn1ss.sh
+#     - .github/workflows/scripts-ios-native.yml
+#     - scripts/ios/create-shared-scheme.py
+#     - .github/workflows/ios-packaging.yml
+#     - maven/codenameone-maven-plugin/**
+#     - vm/ByteCodeTranslator/**
+#     - scripts/run-ios-device-release-build.sh
+#     - scripts/ios/**
+#     - .github/workflows/scripts-mac-catalyst.yml
+#     - scripts/build-mac-catalyst-app.sh
+#     - scripts/run-mac-catalyst-ui-tests.sh
+#     - scripts/mac-catalyst/**
+#     - scripts/common/java/**
+#     - '!**/*.md'
+#     - '!maven/cn1-ai-*/**'
+#     - '!maven/cn1-admob/**'
+#     - '!maven/cn1-applovin/**'
+#     - '!maven/cn1-unity-levelplay/**'
+#     - .github/ci/apple-checks.json
+#     - scripts/ci/select-apple-checks.py
+#     - scripts/ci/select-cn1lib-checks.py
+#   push:
+#     branches:
+#     - master
+#     paths:
+#     # The application these jobs build compiles a Unity project, from an
+#     # archive that unity-gallery-prebuilt.yml makes out of these.
+#     - scripts/unity-compat-samples/gallery/**
+#     - maven/cil-translator/**
+#     - maven/unity-compat/**
+#     - maven/build-engine/src/main/java/com/codename1/maven/Unity*
+#     - maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*
+#     - scripts/unity-gallery-prebuilt.sh
+#     - .github/workflows/unity-gallery-prebuilt.yml
+#     - .github/actions/unity-gallery-prebuilt/**
+#     - .github/workflows/scripts-ios.yml
+#     - .github/workflows/_build-ios-port.yml
+#     - scripts/setup-workspace.sh
+#     - scripts/build-ios-port.sh
+#     - scripts/build-ios-app.sh
+#     - scripts/check-ios-framework-links.py
+#     - scripts/check-ios-sdk-deltas.py
+#     - scripts/check-ios-private-api.py
+#     - scripts/lib/xcode.sh
+#     - scripts/run-ios-ui-tests.sh
+#     - scripts/ci/boot-ios-simulator.sh
+#     - scripts/run-watch-ui-tests.sh
+#     - scripts/run-tv-ui-tests.sh
+#     - scripts/run-ios-native-tests.sh
+#     - scripts/ios/notification-tests/native-tests/**
+#     - scripts/ios/notification-tests/install-native-notification-tests.sh
+#     - scripts/ios/notification-tests/**
+#     - scripts/hellocodenameone/**
+#     - scripts/ios/tests/**
+#     - scripts/ios/screenshots-metal/**
+#     - scripts/ios/screenshots-metal-27/**
+#     - scripts/ios/screenshots-watch/**
+#     - scripts/ios/screenshots-tv/**
+#     - scripts/templates/**
+#     - CodenameOne/src/**
+#     - Ports/iOSPort/**
+#     - native-themes/ios-modern/**
+#     - vm/**
+#     - tests/**
+#     - maven/**
+#     - scripts/hellocodenameone/backend/**
+#     - scripts/lib/cn1ss.sh
+#     - .github/workflows/scripts-ios-native.yml
+#     - scripts/ios/create-shared-scheme.py
+#     - .github/workflows/ios-packaging.yml
+#     - maven/codenameone-maven-plugin/**
+#     - vm/ByteCodeTranslator/**
+#     - scripts/run-ios-device-release-build.sh
+#     - scripts/ios/**
+#     - .github/workflows/scripts-mac-catalyst.yml
+#     - scripts/build-mac-catalyst-app.sh
+#     - scripts/run-mac-catalyst-ui-tests.sh
+#     - scripts/mac-catalyst/**
+#     - scripts/common/java/**
+#     - '!**/*.md'
+#     - '!maven/cn1-ai-*/**'
+#     - '!maven/cn1-admob/**'
+#     - '!maven/cn1-applovin/**'
+#     - '!maven/cn1-unity-levelplay/**'
+#     - .github/ci/apple-checks.json
+#     - scripts/ci/select-apple-checks.py
+#     - scripts/ci/select-cn1lib-checks.py
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

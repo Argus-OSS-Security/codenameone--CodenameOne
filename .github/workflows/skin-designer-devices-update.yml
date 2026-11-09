@@ -3,12 +3,13 @@ name: Skin Designer Device DB Update
 # Walks GSMArena's curated brand listings once a week and merges any new
 # phones/tablets into the bundled devices.json. The HTML cache is persisted
 # across runs so re-fetches are limited to pages that actually changed.
-on:
-  schedule:
-    # Mondays at 03:00 UTC. Weekly is plenty — phones don't release that fast.
-    - cron: '0 3 * * 1'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Mondays at 03:00 UTC. Weekly is plenty — phones don't release that fast.
+#     - cron: '0 3 * * 1'
+#   workflow_dispatch:
+# 
 permissions:
   actions: write
   contents: write

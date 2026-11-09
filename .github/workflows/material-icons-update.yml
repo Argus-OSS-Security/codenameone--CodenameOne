@@ -1,15 +1,16 @@
 name: Material Icons Update
 
-on:
-  schedule:
-    # Weekly on Mondays at 06:00 UTC.
-    - cron: '0 6 * * 1'
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - '.github/workflows/material-icons-update.yml'
-      - '.github/scripts/update_material_icons.py'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Weekly on Mondays at 06:00 UTC.
+#     - cron: '0 6 * * 1'
+#   workflow_dispatch:
+#   pull_request:
+#     paths:
+#       - '.github/workflows/material-icons-update.yml'
+#       - '.github/scripts/update_material_icons.py'
+# 
 permissions:
   actions: write
   contents: write

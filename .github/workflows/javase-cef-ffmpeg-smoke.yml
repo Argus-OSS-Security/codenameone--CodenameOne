@@ -18,20 +18,21 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - '.github/workflows/javase-cef-ffmpeg-smoke.yml'
-      - 'maven/tests/javase-cef-ffmpeg-smoke/**'
-      - 'scripts/run-javase-cef-ffmpeg-smoke.py'
-      - 'scripts/javase-cef-ffmpeg-smoke/**'
-  schedule:
-    - cron: '11 0 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - '.github/workflows/javase-cef-ffmpeg-smoke.yml'
+#       - 'maven/tests/javase-cef-ffmpeg-smoke/**'
+#       - 'scripts/run-javase-cef-ffmpeg-smoke.py'
+#       - 'scripts/javase-cef-ffmpeg-smoke/**'
+#   schedule:
+#     - cron: '11 0 * * *'
+#   workflow_dispatch:
+# 
 jobs:
   javase-smoke:
     name: ${{ matrix.os }}

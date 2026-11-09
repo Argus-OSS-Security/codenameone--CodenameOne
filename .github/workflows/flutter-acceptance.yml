@@ -10,27 +10,28 @@ name: Flutter app acceptance
 # (dio, ...) from the pub cache, so the Flutter SDK is needed for resolution,
 # never to build anything.
 
-on:
-  pull_request:
-    paths:
-      - 'maven/dart-transpiler/**'
-      - 'maven/dart-runtime/**'
-      - 'maven/flutter-runtime/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/FlutterProjectImporter.java'
-      - 'scripts/flutter-apps/**'
-      - '.github/workflows/flutter-acceptance.yml'
-  push:
-    branches:
-      - master
-    paths:
-      - 'maven/dart-transpiler/**'
-      - 'maven/dart-runtime/**'
-      - 'maven/flutter-runtime/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/FlutterProjectImporter.java'
-      - 'scripts/flutter-apps/**'
-      - '.github/workflows/flutter-acceptance.yml'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - 'maven/dart-transpiler/**'
+#       - 'maven/dart-runtime/**'
+#       - 'maven/flutter-runtime/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/FlutterProjectImporter.java'
+#       - 'scripts/flutter-apps/**'
+#       - '.github/workflows/flutter-acceptance.yml'
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'maven/dart-transpiler/**'
+#       - 'maven/dart-runtime/**'
+#       - 'maven/flutter-runtime/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/FlutterProjectImporter.java'
+#       - 'scripts/flutter-apps/**'
+#       - '.github/workflows/flutter-acceptance.yml'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

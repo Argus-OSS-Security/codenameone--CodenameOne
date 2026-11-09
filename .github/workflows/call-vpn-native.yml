@@ -6,26 +6,27 @@
 # CN1Call.m skipped the one check written for CN1Call.m.
 name: Call and VPN natives
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch: {}
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'Ports/iOSPort/nativeSources/CN1Call.*'
-      - 'Ports/iOSPort/nativeSources/CN1Vpn.*'
-      # The header this job compiles against is DERIVED from these two, so a
-      # change to either can break the check while touching no native source.
-      # A pull request that renames an upcall, or breaks the generator, would
-      # otherwise skip the job that exists to catch exactly that.
-      - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCallCallbacks.java'
-      - 'scripts/gen-ios-callback-stub.py'
-      - '.github/workflows/call-vpn-native.yml'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch: {}
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'Ports/iOSPort/nativeSources/CN1Call.*'
+#       - 'Ports/iOSPort/nativeSources/CN1Vpn.*'
+#       # The header this job compiles against is DERIVED from these two, so a
+#       # change to either can break the check while touching no native source.
+#       # A pull request that renames an upcall, or breaks the generator, would
+#       # otherwise skip the job that exists to catch exactly that.
+#       - 'Ports/iOSPort/src/com/codename1/impl/ios/IOSCallCallbacks.java'
+#       - 'scripts/gen-ios-callback-stub.py'
+#       - '.github/workflows/call-vpn-native.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 permissions:
   contents: read
 

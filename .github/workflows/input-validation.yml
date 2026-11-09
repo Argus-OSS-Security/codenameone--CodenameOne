@@ -13,19 +13,20 @@ name: Input validation gesture suite
 # end-to-end input validation on JS needs port-side work first. See
 # scripts/input-validation-app/README.adoc for the "not yet covered" list.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - '.github/workflows/input-validation.yml'
-      - 'scripts/input-validation-app/**'
-      - 'scripts/ios/keyboard-peer-tests/**'
-  workflow_dispatch: {}
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - '.github/workflows/input-validation.yml'
+#       - 'scripts/input-validation-app/**'
+#       - 'scripts/ios/keyboard-peer-tests/**'
+#   workflow_dispatch: {}
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 env:
   # A method the translator culled as unreachable is still emitted as a stub,
   # because dispatch tables name it. With this on, the stub aborts with the

@@ -1,16 +1,17 @@
 name: Website CN1 Version PR
 
-on:
-  # Trigger only on release publication. The developer-guide.pdf is
-  # attached to the release by developer-guide-docs.yml a few minutes
-  # after the release is published, and the PR opened here triggers
-  # website-docs which depends on that asset. Firing on tag-push as
-  # well would create the PR before the asset exists. We still wait
-  # below to cover the gap between release publish and asset upload.
-  release:
-    types:
-      - published
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Trigger only on release publication. The developer-guide.pdf is
+#   # attached to the release by developer-guide-docs.yml a few minutes
+#   # after the release is published, and the PR opened here triggers
+#   # website-docs which depends on that asset. Firing on tag-push as
+#   # well would create the PR before the asset exists. We still wait
+#   # below to cover the gap between release publish and asset upload.
+#   release:
+#     types:
+#       - published
+# 
 permissions:
   contents: write
   pull-requests: write

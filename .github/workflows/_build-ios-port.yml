@@ -6,18 +6,19 @@ name: _Build iOS port (reusable)
 # later runs; an exact artifact remains the required handoff, even on a cold
 # cache or when entries are evicted while consumers wait for a runner.
 
-on:
-  workflow_call:
-    inputs:
-      test_server:
-        description: "Also build the CN1SS test server and hand it over beside the bundle. For callers whose jobs run a screenshot suite."
-        type: boolean
-        default: false
-    outputs:
-      cn1_built_cache_key:
-        description: "Cache key the build job used for the cn1-built artifact bundle. Dependent jobs should reuse this exact key to avoid recomputing the hash and getting a spurious cache miss."
-        value: ${{ jobs.build.outputs.cn1_built_cache_key }}
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       test_server:
+#         description: "Also build the CN1SS test server and hand it over beside the bundle. For callers whose jobs run a screenshot suite."
+#         type: boolean
+#         default: false
+#     outputs:
+#       cn1_built_cache_key:
+#         description: "Cache key the build job used for the cn1-built artifact bundle. Dependent jobs should reuse this exact key to avoid recomputing the hash and getting a spurious cache miss."
+#         value: ${{ jobs.build.outputs.cn1_built_cache_key }}
+# 
 jobs:
   build:
     runs-on: macos-15

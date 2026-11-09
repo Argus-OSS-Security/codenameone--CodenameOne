@@ -14,23 +14,24 @@ name: Python benchmark
 # It also runs the transpiler's conformance tests, which need the Java 17
 # runtime and so cannot run in pr.yml's JDK 8 reactor.
 
-on:
-  pull_request:
-    paths:
-      - 'maven/python-transpiler/**'
-      - 'maven/python-runtime/**'
-      - 'scripts/python-bench/**'
-      - '.github/workflows/python-bench.yml'
-      # The ParparVM arm translates and compiles with these.
-      - 'vm/ByteCodeTranslator/**'
-      - 'vm/JavaAPI/**'
-      - 'vm/selfhost/compile-dist.sh'
-      # Transpiled Python runs on the core's classes (collections, io/gzip).
-      - 'CodenameOne/src/**'
-      - 'maven/core/**'
-      - 'maven/pom.xml'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - 'maven/python-transpiler/**'
+#       - 'maven/python-runtime/**'
+#       - 'scripts/python-bench/**'
+#       - '.github/workflows/python-bench.yml'
+#       # The ParparVM arm translates and compiles with these.
+#       - 'vm/ByteCodeTranslator/**'
+#       - 'vm/JavaAPI/**'
+#       - 'vm/selfhost/compile-dist.sh'
+#       # Transpiled Python runs on the core's classes (collections, io/gzip).
+#       - 'CodenameOne/src/**'
+#       - 'maven/core/**'
+#       - 'maven/pom.xml'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
   # The pr-ci-container image lives on ghcr; without this the job dies in

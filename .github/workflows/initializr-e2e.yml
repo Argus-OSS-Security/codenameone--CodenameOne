@@ -11,26 +11,27 @@ name: Initializr downloads (released framework)
 # merges. The nightly run adds --require-latest: a release the bump never reached
 # fails it, rather than the site quietly offering the previous one.
 
-on:
-  pull_request:
-    paths:
-      - '.github/workflows/initializr-e2e.yml'
-      - 'scripts/initializr/**'
-      - 'scripts/tests/GenerateInitializr.java'
-      - 'scripts/tests/generate-initializr-fixtures.py'
-      - 'scripts/sync-initializr-template.py'
-      - 'scripts/wayline/common/src/test/**'
-      - 'scripts/savor/common/src/test/**'
-      - 'scripts/skirmish/common/src/test/**'
-      - 'scripts/dash/common/src/test/**'
-      - 'scripts/parley/common/src/test/**'
-      - 'scripts/reel/common/src/test/**'
-      - 'scripts/bastion/common/src/test/**'
-      - 'scripts/pulse/common/src/test/**'
-  schedule:
-    - cron: '17 3 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - '.github/workflows/initializr-e2e.yml'
+#       - 'scripts/initializr/**'
+#       - 'scripts/tests/GenerateInitializr.java'
+#       - 'scripts/tests/generate-initializr-fixtures.py'
+#       - 'scripts/sync-initializr-template.py'
+#       - 'scripts/wayline/common/src/test/**'
+#       - 'scripts/savor/common/src/test/**'
+#       - 'scripts/skirmish/common/src/test/**'
+#       - 'scripts/dash/common/src/test/**'
+#       - 'scripts/parley/common/src/test/**'
+#       - 'scripts/reel/common/src/test/**'
+#       - 'scripts/bastion/common/src/test/**'
+#       - 'scripts/pulse/common/src/test/**'
+#   schedule:
+#     - cron: '17 3 * * *'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

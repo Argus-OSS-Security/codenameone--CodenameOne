@@ -19,78 +19,79 @@ name: ParparVM Java Tests (Windows)
 # leg uses a different toolchain, but failures remain blocking on every event.
 # fail-fast is disabled so the x64 leg always runs to completion.
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '5 2 * * *'
-  pull_request:
-    paths:
-      # The application these jobs build compiles a Unity project, from an
-      # archive that unity-gallery-prebuilt.yml makes out of these.
-      - 'scripts/unity-compat-samples/gallery/**'
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/compose-compat/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - '.github/workflows/parparvm-tests-windows.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'scripts/hellocodenameone/**'
-      # The screenshots this leg compares are produced by the core renderer and
-      # the port's native theme, so a change to either can move them. Without
-      # these the leg does not run on the pull request that changes them and the
-      # baselines only go stale on master - which is how the Sheet and
-      # AppReviewDialog captures were left recording a double paint (issue
-      # #5606). scripts/windows holds the baselines themselves, so a reseed is
-      # verified by the leg that produced it.
-      - 'CodenameOne/src/**'
-      - '!CodenameOne/src/**/*.md'
-      - 'native-themes/windows-fluent/**'
-      - '!native-themes/windows-fluent/**/*.md'
-      - 'scripts/windows/**'
-      - '!scripts/windows/**/*.md'
-      - '!vm/**/README.md'
-      - '!vm/**/readme.md'
-      - '!vm/**/docs/**'
-  push:
-    branches: [ master, main ]
-    paths:
-      # The application these jobs build compiles a Unity project, from an
-      # archive that unity-gallery-prebuilt.yml makes out of these.
-      - 'scripts/unity-compat-samples/gallery/**'
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/compose-compat/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - '.github/workflows/parparvm-tests-windows.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'scripts/hellocodenameone/**'
-      # The screenshots this leg compares are produced by the core renderer and
-      # the port's native theme, so a change to either can move them. Without
-      # these the leg does not run on the pull request that changes them and the
-      # baselines only go stale on master - which is how the Sheet and
-      # AppReviewDialog captures were left recording a double paint (issue
-      # #5606). scripts/windows holds the baselines themselves, so a reseed is
-      # verified by the leg that produced it.
-      - 'CodenameOne/src/**'
-      - '!CodenameOne/src/**/*.md'
-      - 'native-themes/windows-fluent/**'
-      - '!native-themes/windows-fluent/**/*.md'
-      - 'scripts/windows/**'
-      - '!scripts/windows/**/*.md'
-      - '!vm/**/README.md'
-      - '!vm/**/readme.md'
-      - '!vm/**/docs/**'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '5 2 * * *'
+#   pull_request:
+#     paths:
+#       # The application these jobs build compiles a Unity project, from an
+#       # archive that unity-gallery-prebuilt.yml makes out of these.
+#       - 'scripts/unity-compat-samples/gallery/**'
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/compose-compat/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - '.github/workflows/parparvm-tests-windows.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'scripts/hellocodenameone/**'
+#       # The screenshots this leg compares are produced by the core renderer and
+#       # the port's native theme, so a change to either can move them. Without
+#       # these the leg does not run on the pull request that changes them and the
+#       # baselines only go stale on master - which is how the Sheet and
+#       # AppReviewDialog captures were left recording a double paint (issue
+#       # #5606). scripts/windows holds the baselines themselves, so a reseed is
+#       # verified by the leg that produced it.
+#       - 'CodenameOne/src/**'
+#       - '!CodenameOne/src/**/*.md'
+#       - 'native-themes/windows-fluent/**'
+#       - '!native-themes/windows-fluent/**/*.md'
+#       - 'scripts/windows/**'
+#       - '!scripts/windows/**/*.md'
+#       - '!vm/**/README.md'
+#       - '!vm/**/readme.md'
+#       - '!vm/**/docs/**'
+#   push:
+#     branches: [ master, main ]
+#     paths:
+#       # The application these jobs build compiles a Unity project, from an
+#       # archive that unity-gallery-prebuilt.yml makes out of these.
+#       - 'scripts/unity-compat-samples/gallery/**'
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/compose-compat/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - '.github/workflows/parparvm-tests-windows.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'scripts/hellocodenameone/**'
+#       # The screenshots this leg compares are produced by the core renderer and
+#       # the port's native theme, so a change to either can move them. Without
+#       # these the leg does not run on the pull request that changes them and the
+#       # baselines only go stale on master - which is how the Sheet and
+#       # AppReviewDialog captures were left recording a double paint (issue
+#       # #5606). scripts/windows holds the baselines themselves, so a reseed is
+#       # verified by the leg that produced it.
+#       - 'CodenameOne/src/**'
+#       - '!CodenameOne/src/**/*.md'
+#       - 'native-themes/windows-fluent/**'
+#       - '!native-themes/windows-fluent/**/*.md'
+#       - 'scripts/windows/**'
+#       - '!scripts/windows/**/*.md'
+#       - '!vm/**/README.md'
+#       - '!vm/**/readme.md'
+#       - '!vm/**/docs/**'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

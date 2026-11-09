@@ -10,38 +10,39 @@ name: Windows simulator and tooling screenshot smoke
 # rasterization differs per OS; the sanity gate catches the
 # opened-but-rendered-nothing failure class.
 
-on:
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/ci/retry.sh'
-      - '.github/workflows/windows-tooling.yml'
-      - 'scripts/run-windows-tooling-tests.sh'
-      - 'scripts/windows/**'
-      - 'scripts/javase/lib/**'
-      - 'scripts/settings/**'
-      - 'scripts/certificatewizard/**'
-      - 'Ports/JavaSE/**'
-      - '!Ports/JavaSE/**/*.md'
-      - 'maven/javase/**'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenSettingsMojo.java'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenCertificateWizardMojo.java'
-  push:
-    branches: [ master ]
-    paths:
-      - 'scripts/ci/retry.sh'
-      - '.github/workflows/windows-tooling.yml'
-      - 'scripts/run-windows-tooling-tests.sh'
-      - 'scripts/windows/**'
-      - 'scripts/javase/lib/**'
-      - 'scripts/settings/**'
-      - 'scripts/certificatewizard/**'
-      - 'Ports/JavaSE/**'
-      - '!Ports/JavaSE/**/*.md'
-      - 'maven/javase/**'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenSettingsMojo.java'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenCertificateWizardMojo.java'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     paths:
+#       - 'scripts/ci/retry.sh'
+#       - '.github/workflows/windows-tooling.yml'
+#       - 'scripts/run-windows-tooling-tests.sh'
+#       - 'scripts/windows/**'
+#       - 'scripts/javase/lib/**'
+#       - 'scripts/settings/**'
+#       - 'scripts/certificatewizard/**'
+#       - 'Ports/JavaSE/**'
+#       - '!Ports/JavaSE/**/*.md'
+#       - 'maven/javase/**'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenSettingsMojo.java'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenCertificateWizardMojo.java'
+#   push:
+#     branches: [ master ]
+#     paths:
+#       - 'scripts/ci/retry.sh'
+#       - '.github/workflows/windows-tooling.yml'
+#       - 'scripts/run-windows-tooling-tests.sh'
+#       - 'scripts/windows/**'
+#       - 'scripts/javase/lib/**'
+#       - 'scripts/settings/**'
+#       - 'scripts/certificatewizard/**'
+#       - 'Ports/JavaSE/**'
+#       - '!Ports/JavaSE/**/*.md'
+#       - 'maven/javase/**'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenSettingsMojo.java'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/OpenCertificateWizardMojo.java'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

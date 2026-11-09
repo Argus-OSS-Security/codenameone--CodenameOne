@@ -1,12 +1,13 @@
 name: Build Container
 
-on:
-  push:
-    paths:
-      - '.ci/container/Dockerfile'
-      - '.github/workflows/build-container.yml'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     paths:
+#       - '.ci/container/Dockerfile'
+#       - '.github/workflows/build-container.yml'
+#   workflow_dispatch:
+# 
 jobs:
   build-and-push:
     runs-on: ubuntu-24.04

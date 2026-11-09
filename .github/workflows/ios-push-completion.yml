@@ -1,18 +1,19 @@
 name: iOS push completion contract
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  workflow_dispatch:
-  pull_request:
-    branches: [master]
-    paths:
-      - 'scripts/ios/push-completion-tests/**'
-      - '.github/workflows/ios-push-completion.yml'
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   workflow_dispatch:
+#   pull_request:
+#     branches: [master]
+#     paths:
+#       - 'scripts/ios/push-completion-tests/**'
+#       - '.github/workflows/ios-push-completion.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 permissions:
   contents: read
 

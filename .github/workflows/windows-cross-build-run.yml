@@ -17,63 +17,64 @@
 #   compare-comment (ubuntu)-> diffs the PNGs vs the in-repo baseline, posts the PR
 name: Windows cross-build + run (Linux build -> Windows run)
 
-on:
-  # Manual dispatch: this PR's changed-file count exceeds GitHub's paths-filter
-  # diff limit, so pull_request triggers stopped firing -- dispatch with
-  #   gh workflow run <file> --ref <branch>
-  workflow_dispatch:
-  schedule:
-    - cron: '55 1 * * *'
-  pull_request:
-    paths:
-      # The application these jobs build compiles a Unity project, from an
-      # archive that unity-gallery-prebuilt.yml makes out of these.
-      - 'scripts/unity-compat-samples/gallery/**'
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/compose-compat/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - '.github/workflows/windows-cross-build-run.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'maven/windows/**'
-      - 'scripts/windows/**'
-      - 'scripts/hellocodenameone/**'
-      # This job's first step runs through both CI shell helpers, so a change to either has
-      # to be exercised here rather than merged untested -- the same reason every other
-      # consumer lists them.
-      - 'scripts/ci/apt-get-install.sh'
-      - 'scripts/ci/apt-get-update.sh'
-      - 'scripts/ci/retry.sh'
-      - '!vm/**/README.md'
-      - '!vm/**/readme.md'
-      - '!vm/**/docs/**'
-  push:
-    branches: [ master, main ]
-    paths:
-      # The application these jobs build compiles a Unity project, from an
-      # archive that unity-gallery-prebuilt.yml makes out of these.
-      - 'scripts/unity-compat-samples/gallery/**'
-      - 'maven/cil-translator/**'
-      - 'maven/unity-compat/**'
-      - 'maven/compose-compat/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
-      - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
-      - 'scripts/unity-gallery-prebuilt.sh'
-      - '.github/workflows/unity-gallery-prebuilt.yml'
-      - '.github/actions/unity-gallery-prebuilt/**'
-      - '.github/workflows/windows-cross-build-run.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'maven/windows/**'
-      - 'scripts/ci/apt-get-install.sh'
-      - 'scripts/ci/apt-get-update.sh'
-      - 'scripts/ci/retry.sh'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Manual dispatch: this PR's changed-file count exceeds GitHub's paths-filter
+#   # diff limit, so pull_request triggers stopped firing -- dispatch with
+#   #   gh workflow run <file> --ref <branch>
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '55 1 * * *'
+#   pull_request:
+#     paths:
+#       # The application these jobs build compiles a Unity project, from an
+#       # archive that unity-gallery-prebuilt.yml makes out of these.
+#       - 'scripts/unity-compat-samples/gallery/**'
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/compose-compat/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - '.github/workflows/windows-cross-build-run.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'maven/windows/**'
+#       - 'scripts/windows/**'
+#       - 'scripts/hellocodenameone/**'
+#       # This job's first step runs through both CI shell helpers, so a change to either has
+#       # to be exercised here rather than merged untested -- the same reason every other
+#       # consumer lists them.
+#       - 'scripts/ci/apt-get-install.sh'
+#       - 'scripts/ci/apt-get-update.sh'
+#       - 'scripts/ci/retry.sh'
+#       - '!vm/**/README.md'
+#       - '!vm/**/readme.md'
+#       - '!vm/**/docs/**'
+#   push:
+#     branches: [ master, main ]
+#     paths:
+#       # The application these jobs build compiles a Unity project, from an
+#       # archive that unity-gallery-prebuilt.yml makes out of these.
+#       - 'scripts/unity-compat-samples/gallery/**'
+#       - 'maven/cil-translator/**'
+#       - 'maven/unity-compat/**'
+#       - 'maven/compose-compat/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/Unity*'
+#       - 'maven/codenameone-maven-plugin/src/main/java/com/codename1/maven/*Unity*'
+#       - 'scripts/unity-gallery-prebuilt.sh'
+#       - '.github/workflows/unity-gallery-prebuilt.yml'
+#       - '.github/actions/unity-gallery-prebuilt/**'
+#       - '.github/workflows/windows-cross-build-run.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'maven/windows/**'
+#       - 'scripts/ci/apt-get-install.sh'
+#       - 'scripts/ci/apt-get-update.sh'
+#       - 'scripts/ci/retry.sh'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

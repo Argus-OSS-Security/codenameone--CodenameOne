@@ -22,47 +22,48 @@ name: Desktop compatibility
 #                                 with the display server's pointer and keys;
 #                                 fails on anything thrown and on a click, a
 #                                 drag or a key that changes no pixel
-on:
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'maven/swing-compat/**'
-      - 'maven/javafx-compat/**'
-      - 'maven/fxml-compiler/**'
-      - 'maven/compat-testing/**'
-      - 'maven/build-engine/**'
-      - 'maven/codenameone-maven-plugin/**'
-      - 'maven/codenameone-gradle-plugin/**'
-      - 'maven/project-model/**'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/desktop-compat-test.sh'
-      - 'maven/integration-tests/desktop-compat-realport/**'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/desktop-compat-samples/**'
-      # The script builds one project holding both layers from this sample.
-      - 'scripts/android-compat-samples/gallery/**'
-      - '.github/workflows/desktop-compat.yml'
-  push:
-    branches: [ master ]
-    paths:
-      - 'maven/swing-compat/**'
-      - 'maven/javafx-compat/**'
-      - 'maven/fxml-compiler/**'
-      - 'maven/compat-testing/**'
-      - 'maven/build-engine/**'
-      - 'maven/codenameone-maven-plugin/**'
-      - 'maven/codenameone-gradle-plugin/**'
-      - 'maven/project-model/**'
-      - 'maven/cn1app-archetype/**'
-      - 'maven/pom.xml'
-      - 'maven/integration-tests/desktop-compat-test.sh'
-      - 'maven/integration-tests/desktop-compat-realport/**'
-      - 'maven/integration-tests/inc/**'
-      - 'scripts/desktop-compat-samples/**'
-      - 'scripts/android-compat-samples/gallery/**'
-      - '.github/workflows/desktop-compat.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/swing-compat/**'
+#       - 'maven/javafx-compat/**'
+#       - 'maven/fxml-compiler/**'
+#       - 'maven/compat-testing/**'
+#       - 'maven/build-engine/**'
+#       - 'maven/codenameone-maven-plugin/**'
+#       - 'maven/codenameone-gradle-plugin/**'
+#       - 'maven/project-model/**'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/desktop-compat-test.sh'
+#       - 'maven/integration-tests/desktop-compat-realport/**'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/desktop-compat-samples/**'
+#       # The script builds one project holding both layers from this sample.
+#       - 'scripts/android-compat-samples/gallery/**'
+#       - '.github/workflows/desktop-compat.yml'
+#   push:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/swing-compat/**'
+#       - 'maven/javafx-compat/**'
+#       - 'maven/fxml-compiler/**'
+#       - 'maven/compat-testing/**'
+#       - 'maven/build-engine/**'
+#       - 'maven/codenameone-maven-plugin/**'
+#       - 'maven/codenameone-gradle-plugin/**'
+#       - 'maven/project-model/**'
+#       - 'maven/cn1app-archetype/**'
+#       - 'maven/pom.xml'
+#       - 'maven/integration-tests/desktop-compat-test.sh'
+#       - 'maven/integration-tests/desktop-compat-realport/**'
+#       - 'maven/integration-tests/inc/**'
+#       - 'scripts/desktop-compat-samples/**'
+#       - 'scripts/android-compat-samples/gallery/**'
+#       - '.github/workflows/desktop-compat.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true

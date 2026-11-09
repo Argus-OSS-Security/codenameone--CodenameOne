@@ -28,19 +28,20 @@ name: ParparVM Self-Hosting
 # translates a large corpus several times. It runs nightly, on demand, and on a
 # PR that opts in with the `selfhost` label.
 
-on:
-  schedule:
-    # 04:20 UTC daily, off the hour to avoid the runner rush.
-    - cron: '20 4 * * *'
-  workflow_dispatch:
-  pull_request:
-    types: [ opened, synchronize, reopened, labeled ]
-    paths:
-      - 'vm/**'
-      - '.github/workflows/parparvm-selfhost.yml'
-      - '!vm/**/README.md'
-      - '!vm/**/docs/**'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # 04:20 UTC daily, off the hour to avoid the runner rush.
+#     - cron: '20 4 * * *'
+#   workflow_dispatch:
+#   pull_request:
+#     types: [ opened, synchronize, reopened, labeled ]
+#     paths:
+#       - 'vm/**'
+#       - '.github/workflows/parparvm-selfhost.yml'
+#       - '!vm/**/README.md'
+#       - '!vm/**/docs/**'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

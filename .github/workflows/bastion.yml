@@ -26,20 +26,21 @@ name: Bastion (full-stack sample)
 # What only a cloud build turns on -- the hardening passes, Play Integrity and
 # the jailbreak checks -- is not built here; the app reports it as inactive.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - 'scripts/bastion/**'
-      - '.github/workflows/bastion.yml'
-  # The same paths as pull_request: a change that a PR run would have
-  # checked is checked again when it lands.
-  workflow_dispatch:
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - 'scripts/bastion/**'
+#       - '.github/workflows/bastion.yml'
+#   # The same paths as pull_request: a change that a PR run would have
+#   # checked is checked again when it lands.
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual run from cancelling a push or PR run.

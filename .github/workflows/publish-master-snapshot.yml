@@ -5,12 +5,13 @@
 # ASSETS are overwritten each run; the daemon always downloads the latest.
 name: Publish master snapshot
 
-on:
-  push:
-    branches:
-      - master
-
-# Never let two master pushes publish at the same time.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - master
+# 
+# # Never let two master pushes publish at the same time.
 concurrency:
   group: master-snapshot
   cancel-in-progress: true

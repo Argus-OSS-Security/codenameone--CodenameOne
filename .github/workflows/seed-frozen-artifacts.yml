@@ -10,16 +10,17 @@
 # so the ordering is enforced rather than remembered.
 name: Seed frozen artifacts to R2
 
-on:
-  workflow_dispatch:
-    inputs:
-      coordinates:
-        description: 'Optional "<artifactId>:<version> ..." override; blank uses the pinned set'
-        required: false
-        default: ''
-
-# Shares the release group: seeding writes into the same bucket that a release's
-# metadata regeneration reads, and that regeneration is a read-modify-write.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       coordinates:
+#         description: 'Optional "<artifactId>:<version> ..." override; blank uses the pinned set'
+#         required: false
+#         default: ''
+# 
+# # Shares the release group: seeding writes into the same bucket that a release's
+# # metadata regeneration reads, and that regeneration is a read-modify-write.
 concurrency:
   group: release
   cancel-in-progress: false

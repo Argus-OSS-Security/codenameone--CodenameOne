@@ -25,30 +25,31 @@ name: Gradle build smoke
 # The framework builds on JDK 8 as everywhere else; Gradle runs on the matrix JDK,
 # the floor Gradle projects support and the current LTS, and on both the Gradle
 # the wrapper pins and the oldest one the plugin supports.
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'maven/codenameone-gradle-plugin/**'
-      - 'maven/codenameone-gradle-plugin-marker/**'
-      - 'maven/integration-tests/gradle-*.sh'
-      # The command-line tool stage of gradle-initializr-test.sh is the only
-      # place a @Command app is packaged and run natively, so its own tree runs it.
-      - 'vm/backend/src/com/codename1/cli/**'
-      - 'maven/build-engine/src/main/java/com/codename1/maven/processors/CommandAnnotationProcessor.java'
-      - 'maven/build-engine/src/main/resources/com/codename1/project/templates/gradle/cli/**'
-      # Run with DISPLAY cleared: a CSS compiler change that reaches for a
-      # display must fail on its own pull request (CLAUDE.md, headless CSS).
-      - 'maven/css-compiler/**'
-      - 'maven/css-cli/**'
-      - '.github/workflows/gradle-smoke.yml'
-  schedule:
-    - cron: '11 0 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/codenameone-gradle-plugin/**'
+#       - 'maven/codenameone-gradle-plugin-marker/**'
+#       - 'maven/integration-tests/gradle-*.sh'
+#       # The command-line tool stage of gradle-initializr-test.sh is the only
+#       # place a @Command app is packaged and run natively, so its own tree runs it.
+#       - 'vm/backend/src/com/codename1/cli/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/maven/processors/CommandAnnotationProcessor.java'
+#       - 'maven/build-engine/src/main/resources/com/codename1/project/templates/gradle/cli/**'
+#       # Run with DISPLAY cleared: a CSS compiler change that reaches for a
+#       # display must fail on its own pull request (CLAUDE.md, headless CSS).
+#       - 'maven/css-compiler/**'
+#       - 'maven/css-cli/**'
+#       - '.github/workflows/gradle-smoke.yml'
+#   schedule:
+#     - cron: '11 0 * * *'
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true

@@ -47,9 +47,10 @@ name: _Unity gallery prebuilt (reusable)
 # The artifact, not the cache, is the handoff within a run: a cache entry can
 # be evicted between this job and a consumer that waited for a runner.
 
-on:
-  workflow_call:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+# 
 jobs:
   build:
     name: Unity gallery prebuilt

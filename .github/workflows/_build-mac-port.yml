@@ -14,13 +14,14 @@ name: _Build macOS port (reusable)
 # sequence is skipped -- the port artifacts in ~/.m2/repository/com/codenameone
 # are already correct for the current source state.
 
-on:
-  workflow_call:
-    outputs:
-      cn1_built_mac_cache_key:
-        description: "Cache key the build job used for the cn1-built-mac artifact bundle. Dependent jobs should reuse this exact key to avoid recomputing the hash and getting a spurious cache miss."
-        value: ${{ jobs.build.outputs.cn1_built_mac_cache_key }}
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     outputs:
+#       cn1_built_mac_cache_key:
+#         description: "Cache key the build job used for the cn1-built-mac artifact bundle. Dependent jobs should reuse this exact key to avoid recomputing the hash and getting a spurious cache miss."
+#         value: ${{ jobs.build.outputs.cn1_built_mac_cache_key }}
+# 
 jobs:
   build:
     runs-on: macos-15

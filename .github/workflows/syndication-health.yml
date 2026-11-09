@@ -1,16 +1,17 @@
 name: Syndication Health
 
-on:
-  workflow_run:
-    workflows:
-      - Syndicate Blog Posts
-    types:
-      - completed
-  schedule:
-    # Catch a silent/stalled local browser runner within a few hours.
-    - cron: '17 */4 * * *'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows:
+#       - Syndicate Blog Posts
+#     types:
+#       - completed
+#   schedule:
+#     # Catch a silent/stalled local browser runner within a few hours.
+#     - cron: '17 */4 * * *'
+#   workflow_dispatch:
+# 
 permissions:
   actions: read
   contents: read

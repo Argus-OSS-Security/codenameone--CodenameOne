@@ -1,29 +1,30 @@
 name: Codename One Designer CI
 
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'scripts/ci/apt-get-install.sh'
-      - 'scripts/ci/retry.sh'
-      - 'CodenameOneDesigner/**'
-      - 'maven/css-compiler/**'
-      - 'maven/css-cli/**'
-      - 'maven/designer/**'
-      - '.github/workflows/designer.yml'
-  pull_request:
-    branches:
-      - master
-    paths:
-      - 'scripts/ci/apt-get-install.sh'
-      - 'scripts/ci/retry.sh'
-      - 'CodenameOneDesigner/**'
-      - 'maven/css-compiler/**'
-      - 'maven/css-cli/**'
-      - 'maven/designer/**'
-      - '.github/workflows/designer.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'scripts/ci/apt-get-install.sh'
+#       - 'scripts/ci/retry.sh'
+#       - 'CodenameOneDesigner/**'
+#       - 'maven/css-compiler/**'
+#       - 'maven/css-cli/**'
+#       - 'maven/designer/**'
+#       - '.github/workflows/designer.yml'
+#   pull_request:
+#     branches:
+#       - master
+#     paths:
+#       - 'scripts/ci/apt-get-install.sh'
+#       - 'scripts/ci/retry.sh'
+#       - 'CodenameOneDesigner/**'
+#       - 'maven/css-compiler/**'
+#       - 'maven/css-cli/**'
+#       - 'maven/designer/**'
+#       - '.github/workflows/designer.yml'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

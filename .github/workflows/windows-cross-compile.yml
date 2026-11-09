@@ -8,32 +8,33 @@
 # run/render gate stays on the Windows runners (parparvm-tests-windows.yml).
 name: Windows cross-compile (Linux)
 
-on:
-  pull_request:
-    paths:
-      - '.github/workflows/windows-cross-compile.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'maven/windows/**'
-      - 'scripts/gen-windows-uwp-stubs.py'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/WindowsNativeBuilder.java'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/WindowsNativeBuilderArchTest.java'
-      - 'maven/build-engine/src/test/resources/com/codename1/builders/xbox-smoke-AppxManifest.xml'
-      - '!vm/**/README.md'
-      - '!vm/**/readme.md'
-      - '!vm/**/docs/**'
-  push:
-    branches: [ master, main ]
-    paths:
-      - '.github/workflows/windows-cross-compile.yml'
-      - 'vm/**'
-      - 'Ports/WindowsPort/**'
-      - 'maven/windows/**'
-      - 'scripts/gen-windows-uwp-stubs.py'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/WindowsNativeBuilder.java'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/WindowsNativeBuilderArchTest.java'
-      - 'maven/build-engine/src/test/resources/com/codename1/builders/xbox-smoke-AppxManifest.xml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - '.github/workflows/windows-cross-compile.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'maven/windows/**'
+#       - 'scripts/gen-windows-uwp-stubs.py'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/WindowsNativeBuilder.java'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/WindowsNativeBuilderArchTest.java'
+#       - 'maven/build-engine/src/test/resources/com/codename1/builders/xbox-smoke-AppxManifest.xml'
+#       - '!vm/**/README.md'
+#       - '!vm/**/readme.md'
+#       - '!vm/**/docs/**'
+#   push:
+#     branches: [ master, main ]
+#     paths:
+#       - '.github/workflows/windows-cross-compile.yml'
+#       - 'vm/**'
+#       - 'Ports/WindowsPort/**'
+#       - 'maven/windows/**'
+#       - 'scripts/gen-windows-uwp-stubs.py'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/WindowsNativeBuilder.java'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/WindowsNativeBuilderArchTest.java'
+#       - 'maven/build-engine/src/test/resources/com/codename1/builders/xbox-smoke-AppxManifest.xml'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

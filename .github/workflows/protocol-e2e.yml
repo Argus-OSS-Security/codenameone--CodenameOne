@@ -7,21 +7,22 @@ name: Protocol E2E (REST / GraphQL / gRPC)
 # performs real round-trips against all three endpoints and asserts the
 # responses -- an end-to-end check of the full generated-client stack.
 
-on:
-  # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
-  # fails), and on a pull request only when this workflow's own tree changes.
-  # Shared code (core, ports, builders, backend) reaches it through the nightly.
-  pull_request:
-    paths:
-      - 'scripts/protocol-e2e/**'
-      - 'CodenameOne/src/com/codename1/io/graphql/**'
-      - 'CodenameOne/src/com/codename1/annotations/graphql/**'
-      - 'CodenameOne/src/com/codename1/io/grpc/**'
-      - '.github/workflows/protocol-e2e.yml'
-  workflow_dispatch:
-  schedule:
-    - cron: '11 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # Nightly at 00:11 UTC on master (nightly-watchdog.yml opens an issue when it
+#   # fails), and on a pull request only when this workflow's own tree changes.
+#   # Shared code (core, ports, builders, backend) reaches it through the nightly.
+#   pull_request:
+#     paths:
+#       - 'scripts/protocol-e2e/**'
+#       - 'CodenameOne/src/com/codename1/io/graphql/**'
+#       - 'CodenameOne/src/com/codename1/annotations/graphql/**'
+#       - 'CodenameOne/src/com/codename1/io/grpc/**'
+#       - '.github/workflows/protocol-e2e.yml'
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '11 0 * * *'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

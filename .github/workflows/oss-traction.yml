@@ -1,11 +1,12 @@
 name: OSS Traction Snapshot
 
-on:
-  schedule:
-    # GitHub traffic is a rolling 14-day window. Weekly snapshots preserve it.
-    - cron: '41 3 * * 1'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # GitHub traffic is a rolling 14-day window. Weekly snapshots preserve it.
+#     - cron: '41 3 * * 1'
+#   workflow_dispatch:
+# 
 permissions:
   actions: read
   # The scheduled job stores aggregate star history in an unpublished draft

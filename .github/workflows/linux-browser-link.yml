@@ -1,8 +1,9 @@
 name: Linux browser lazy linking
-on:
-  pull_request:
-    paths: ['Ports/LinuxPort/nativeSources/**', 'scripts/linux/check-browser-lazy-link.sh', '.github/workflows/linux-browser-link.yml']
-  workflow_dispatch:
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths: ['Ports/LinuxPort/nativeSources/**', 'scripts/linux/check-browser-lazy-link.sh', '.github/workflows/linux-browser-link.yml']
+#   workflow_dispatch:
 permissions:
   contents: read
 concurrency:

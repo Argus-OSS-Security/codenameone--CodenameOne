@@ -3,15 +3,16 @@ name: Java snippet validation
 permissions:
   contents: read
 
-on:
-  pull_request:
-    paths:
-      - 'scripts/extract-javadoc-java-snippets.sh'
-      - 'scripts/java-snippet-to-playground-uri.sh'
-      - 'scripts/validate-extracted-javadoc-snippets.sh'
-      - 'scripts/java-snippet-validation-exclusions.jsonl'
-      - '.github/workflows/java-snippet-validation.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - 'scripts/extract-javadoc-java-snippets.sh'
+#       - 'scripts/java-snippet-to-playground-uri.sh'
+#       - 'scripts/validate-extracted-javadoc-snippets.sh'
+#       - 'scripts/java-snippet-validation-exclusions.jsonl'
+#       - '.github/workflows/java-snippet-validation.yml'
+# 
 concurrency:
   # Only the latest revision needs validation. PR numbers keep forks isolated;
   # event names keep a manual/scheduled run from cancelling a push or PR run.

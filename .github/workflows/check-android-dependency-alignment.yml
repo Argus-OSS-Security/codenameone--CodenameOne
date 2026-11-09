@@ -22,33 +22,34 @@ name: Check Android dependency 16 KB alignment
 permissions:
   contents: read
 
-on:
-  workflow_dispatch:
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'maven/platform-feature-catalog/**'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/**'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidDependencyCoordinates.java'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidSixteenKbPageFloorTest.java'
-      - 'maven/build-hint-catalog/**'
-      - 'scripts/check-android-dependency-alignment.py'
-      - 'scripts/test_check_android_dependency_alignment.py'
-      - 'scripts/check-16k-page-alignment.py'
-      - '.github/workflows/check-android-dependency-alignment.yml'
-  push:
-    branches: [ master ]
-    paths:
-      - 'maven/platform-feature-catalog/**'
-      - 'maven/build-engine/src/main/java/com/codename1/builders/**'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidDependencyCoordinates.java'
-      - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidSixteenKbPageFloorTest.java'
-      - 'maven/build-hint-catalog/**'
-      - 'scripts/check-android-dependency-alignment.py'
-      - 'scripts/test_check_android_dependency_alignment.py'
-      - 'scripts/check-16k-page-alignment.py'
-      - '.github/workflows/check-android-dependency-alignment.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/platform-feature-catalog/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/**'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidDependencyCoordinates.java'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidSixteenKbPageFloorTest.java'
+#       - 'maven/build-hint-catalog/**'
+#       - 'scripts/check-android-dependency-alignment.py'
+#       - 'scripts/test_check_android_dependency_alignment.py'
+#       - 'scripts/check-16k-page-alignment.py'
+#       - '.github/workflows/check-android-dependency-alignment.yml'
+#   push:
+#     branches: [ master ]
+#     paths:
+#       - 'maven/platform-feature-catalog/**'
+#       - 'maven/build-engine/src/main/java/com/codename1/builders/**'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidDependencyCoordinates.java'
+#       - 'maven/build-engine/src/test/java/com/codename1/builders/AndroidSixteenKbPageFloorTest.java'
+#       - 'maven/build-hint-catalog/**'
+#       - 'scripts/check-android-dependency-alignment.py'
+#       - 'scripts/test_check_android_dependency_alignment.py'
+#       - 'scripts/check-16k-page-alignment.py'
+#       - '.github/workflows/check-android-dependency-alignment.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
